@@ -1,0 +1,30 @@
+body{
+    background-color:white;
+    color:#dcb2e;
+    overflow-x:hidden;
+}
+
+
+nav{
+    background-color:yellow;
+}
+
+.product{
+    border:5px solid #bbb;
+    border-radius:10%;
+    padding:10px;
+    margin:20px;
+    box-shadow:1px 1px 1px 1px cyan;
+}
+.product:hover{
+    border:2px solid cyan;
+    border-radius:10%;
+    padding:15px;
+    margin:10px;
+    box-shadow:1px 1px 1px 1px cyan;
+}
+
+.product img{
+    height:100px;
+    margin:auto;
+}

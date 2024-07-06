@@ -1,0 +1,31 @@
+<%- include('includes/head.ejs') %>
+<%- include('includes/navigation.ejs') %>
+
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Cart Details</h2>
+                <hr/>
+                <div class="cart-details">
+                    <div class="cart-title">
+                        <div>product Name</div>
+                        <div>Quantity</div>
+                        <div>Price Per Product</div>
+                        <div>Total Price</div>
+                    </div>
+                    <% for(let product of cartProducts){%>
+                    <div class="cart-product">
+                    <div><%=product.title%></div>
+                    <div><%=product.quantity%></div>
+                    <div><%=product.price%></div>
+                    <div><%=product.cartPrice%></div>
+                    </div>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    </main>
+    <%- include('includes/footer.ejs') %>

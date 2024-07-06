@@ -1,0 +1,38 @@
+<%- include('includes/head.ejs') %>
+<%- include('includes/navigation.ejs') %>
+    <main>
+        <h1 ><%= (admin)? 'Admin Product List':'Product List'%></h1>
+            <% if(products.length)
+            { %><div class="row">
+            <% for(let prod of products)
+            { %>
+                <div class="col-md-3">
+                    <div class="product">
+                        <div class="text-center">
+                            <img src="<%=prod.image%>" class="img-fluid" />
+                            </div>
+                        <h3><%= prod.title %></h3>
+                        <div><strong>$<%= prod.price %></strong></div>
+                        <p><%= prod.description %></p>
+                        <% if(admin) {%>
+                            <div class="my-2 text-center d-flex justify-contents-center">
+                            <a href="/product/edit/<%=prod.id %>" class="btn btn-primary mx-2">Edit</a>
+                            <form method="post" action="/products/delete">
+                               <input type="hidden" name="productId" value="<%=prod.id%>" /> 
+                               <button class="btn btn-danger mx-2">Delete</button>
+                                </form>
+                            </div>
+                            <%}else{%>
+                        <div class="my-2 text-center d-flex justify-contents-center">
+                            <a href="/product/details/<%=prod.id %>" class="btn btn-primary mx-2">View Details</a>
+                            <%- include('includes/cart.ejs',{product:prod})%>
+                            </div>
+                            <%}%>
+                        </div>
+                    </div>
+            <% } %></div>
+            <% } else { %>
+                <div>No Products</div>
+            <% } %>
+    </main>
+    <%- include('includes/footer.ejs') %>
