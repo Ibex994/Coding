@@ -56,58 +56,6 @@ exports.getProductById=(productId,callback)=>{
         });
 };
 
-// const fs = require('fs');
-// const path = require('path');
-
-// const productPath = path.join(__dirname, '../', 'data', 'products.json');
-
-  // Save Product Function
-// exports.saveProduct = (product, callback) => {
-//     fs.readFile(productPath, 'utf8', (error, productsData) => {
-//         let products = [];
-//         if (!error && productsData) {
-//             try {
-//                 products = JSON.parse(productsData);
-//             } catch (e) {
-//                 return callback(new Error('Error parsing JSON data'));
-//             }
-//         } else if (error && error.code !== 'ENOENT') {
-//             return callback(error);
-//         }
-
-//         products.push(product);
-//         fs.writeFile(productPath, JSON.stringify(products), (error) => {
-//             if (error) {
-//                 return callback(error);
-//             }
-//             callback(null);
-//         });
-//     });
-// };
-
-// // Fetch All Products Function
-// exports.fetchAllProducts = (callback) => {
-//     fs.readFile(productPath, 'utf8', (error, productsData) => {
-//         if (error) {
-//             if (error.code === 'ENOENT') {
-//                 return callback(null, []);
-//             } else {
-//                 return callback(error);
-//             }
-//         }
-
-//         let products = [];
-//         if (productsData) {
-//             try {
-//                 products = JSON.parse(productsData);
-//             } catch (e) {
-//                 return callback(new Error('Error parsing JSON data'));
-//             }
-//         }
-//         callback(null, products);
-//     });
-// };
-
 exports.updateProductById=(updatedProduct,productId)=>{
     const productPath = path.join(__dirname, '../', 'data', 'products.json');
     getProductFromFile(products=>{

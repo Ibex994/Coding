@@ -15,7 +15,6 @@ exports.getHomePage=(req,res)=>{
 
 exports.getProductDetails= (req,res) =>{
     const productId=req.params.productId;
-    // console.log(req.params);
     getProductById(productId,(product)=>{
         const viewsData={
             product,

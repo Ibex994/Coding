@@ -8,19 +8,18 @@
                 <h2>Cart Details</h2>
                 <hr/>
                 <div class="cart-details">
-                    <div class="cart-title">
-                        <div>product Name</div>
-                        <div>Quantity</div>
-                        <div>Price Per Product</div>
-                        <div>Total Price</div>
-                    </div>
                     <% for(let product of cartProducts){%>
                     <div class="cart-product">
+                    <div class="cart-title">product Name</div>
                     <div><%=product.title%></div>
-                    <div><%=product.quantity%></div>
-                    <div><%=product.price%></div>
+                    <div class="cart-title">Quantity</div>
+                    <div><%=product.quantity%></div> 
+                    <div class="cart-title">Price Per Product</div>
+                    <div><%=product.price%></div> 
+                    <div class="cart-title">Total Price</div>
                     <div><%=product.cartPrice%></div>
                     </div>
+                    <hr/>
                     <%}%>
                 </div>
             </div>
