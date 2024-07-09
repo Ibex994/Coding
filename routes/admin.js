@@ -35,9 +35,10 @@ router.get('/users',function(req,res){
    //using ejs
    const rend={
     title:"Users Page",
-    h1:"Hello Users Nice To Meet You"
+    h1:"Hello Users Nice To Meet You",
+    ashu:123456789
    };
-   res.status(200).render('users',rend);
+   res.status(500).render('users',rend);
 
 });
 //router.get('/products/add',function(req,res){

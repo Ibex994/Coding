@@ -15,7 +15,7 @@ exports.getCartDetailsFromFiles = (callback) => {
 exports.addProductToCart = (productId, productPrice) => {
     const cartPath = path.join(__dirname, '../', 'data', 'cart.json');
     
-    this.getCartDetailsFromFiles(cart => {
+    this.getCartDetailsFromFiles((cart) => {
         let existingProductIndex = cart.products.findIndex((prod) => prod.id.toString() == productId.toString());
 
         let updatedProduct;
@@ -35,14 +35,16 @@ exports.addProductToCart = (productId, productPrice) => {
     });
 };
 
-exports.deleteProductFromCart = (productId) => {
+exports.deleteProductFromCart = (productId,callback='') => {
     const cartPath = path.join(__dirname, '../', 'data', 'cart.json');
     this.getCartDetailsFromFiles(cart => {
         let cartProducts = cart.products;
-        let updatedCartProduct = cartProducts.filter((prod) => prod.id.toString() !== productId.toString());
-
+        let existingProductIndex = cart.products.findIndex((prod) => prod.id.toString() !== productId.toString());
         fs.writeFile(cartPath, JSON.stringify(updatedCartProduct), (error) => {
             console.log(error);
         });
+        if(callback){
+            callback();
+        }
     });
 };

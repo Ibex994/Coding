@@ -1,26 +1,37 @@
 <%- include('includes/head.ejs') %>
 <%- include('includes/navigation.ejs') %>
-
+<link rel="stylesheet" href="/css/cart.css"/>
 <main>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 ">
                 <h2>Cart Details</h2>
                 <hr/>
                 <div class="cart-details">
-                    <% for(let product of cartProducts){%>
-                    <div class="cart-product">
-                    <div class="cart-title">product Name</div>
-                    <div><%=product.title%></div>
-                    <div class="cart-title">Quantity</div>
-                    <div><%=product.quantity%></div> 
-                    <div class="cart-title">Price Per Product</div>
-                    <div><%=product.price%></div> 
-                    <div class="cart-title">Total Price</div>
-                    <div><%=product.cartPrice%></div>
+                    <div class="cart-title d-flex text-end">
+                        <div class="">Product Name</div>
+                        <div class="" >Quantity</div>
+                         <div class="">Price Per Product</div>
+                          <div class="">Total Price</div>
+                          <div class="">Action</div>
                     </div>
-                    <hr/>
+                    <% for(let product of cartProducts){%>
+            <div class="cart-product d-flex">
+                    <div ><%=product.title%></div>
+                    <div ><%=product.quantity%></div> 
+                   <div >$<%=product.price%></div> 
+                   <div >$<%=product.cartPrice%></div>
+                   <div>
+                    <form action="/cart/delete-item" method="post">
+                        <input type="hidden" name="productId" value="<%= product.id %>">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                   </div>
+            </div>
                     <%}%>
+                    <div class="text-end">
+                        <h4>Total Price: $<%=totalPrice%></h4>
+                    </div>
                 </div>
             </div>
         </div>

@@ -48,12 +48,12 @@ exports.fetchAllProducts=(callback)=>{
 getProductFromFile(callback);
 };
 
-exports.getProductById=(productId,callback)=>{
-    getProductFromFile(products =>{
-        const product = products.find((p)=>p.id.toString() === productId);
+exports.getProductById = (productId, callback) => {
+    getProductFromFile(products => {
+        const product = products.find((p) => p.id.toString() === productId);
         console.log(product);
         callback(product);
-        });
+    });
 };
 
 exports.updateProductById=(updatedProduct,productId)=>{

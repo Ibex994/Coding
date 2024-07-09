@@ -3,7 +3,7 @@ const route = express.Router();
 const path= require('path');
 // const productsData =require('../utiles/product');
 const { getHomePage,getProductDetails } = require('../constrollers/admin/HomeController');
-const { postCartPage,getCartPage } = require('../constrollers/admin/CartController');
+const { postCartPage,getCartPage, deleteCartItem } = require('../constrollers/admin/CartController');
 
         //middleware
 // route.get('/',function(req,res,next){
@@ -23,7 +23,7 @@ route.get('/product/details/:productId', getProductDetails);
 route.post('/cart',postCartPage);
 route.get('/cart',getCartPage);
 
-
+route.post('/cart/delete-item',deleteCartItem);
 
 
 module.exports=route;
